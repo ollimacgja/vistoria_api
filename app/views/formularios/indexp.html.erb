@@ -1,0 +1,37 @@
+<div class="padd">
+
+  <p id="notice"><%= notice %></p>
+
+  <h1>Formularios Enviados</h1>
+
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Usuario</th>
+      <th>Filial</th>
+      <th colspan="1"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @form.each do |formulario| %>
+        <% link=formulario.form_id.to_s+"/form_enviado"%>
+        <tr>
+          <td><%= formulario.formulario.nome %></td>
+          <td><%= formulario.usuario.nome %></td>
+          <td><%= formulario.usuario.filial.nome%></td>
+          <td><%= button_to 'Abrir Formulario', url_for(link)  , method: :get ,class: "btn btn-primary"%></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+
+</div>
+
+<div class="widget-foot">
+
+</div>

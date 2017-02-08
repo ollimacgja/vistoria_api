@@ -1,0 +1,30 @@
+<div class="padd">
+
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Nome:</strong>
+    <%= @usuario.nome %>
+  </p>
+
+  <p>
+    <strong>Filial:</strong>
+    <%= @usuario.filial.nome %>
+  </p>
+
+  <p>
+    <strong>Tipo:</strong>
+    <%= @usuario.tipo %>
+  </p>
+
+
+
+  <%= button_to 'Editar', edit_usuario_path(@usuario), method: :get,class: "btn btn-danger" %>
+
+
+
+</div>
+
+<div class="widget-foot">
+  <%= button_to 'Voltar', usuarios_path, method: :get,class: "btn btn-warning" %>
+</div>

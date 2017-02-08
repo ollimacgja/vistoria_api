@@ -1,0 +1,37 @@
+<%= form_for(@usuario) do |f| %>
+  <% if @usuario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+
+      <ul>
+      <% @usuario.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %><br>
+    <%= f.text_field :nome , class: "form-control"%>
+  </div>
+
+  <div class="field">
+    <%= f.label "Filial" %><br>
+    <%= f.collection_select :filial_id ,@filial, :id,:nome, class: "selectpicker" %>
+  </div>
+    <div class="field">
+      <%= f.label "Usuario Pré-cadastrado" %><br>
+      <%= f.collection_select :user_id ,@users, :id,:email, class: "selectpicker" %>
+    </div>
+  <div class="field">
+    <%= f.label :tipo %><br>
+    <select name="usuario[tipo]" id="usuario[tipo]">
+      <option value="0">Comum</option>
+      <option value="1">Administrador</option>
+    </select>
+  </div>
+  <div class="actions">
+    <%= f.submit txt , class: "btn btn-success" %>
+  </div>
+<% end %>
