@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20170209204031) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "field_types", force: :cascade do |t|
     t.string   "nome"
     t.datetime "created_at", null: false
@@ -44,9 +47,9 @@ ActiveRecord::Schema.define(version: 20170209204031) do
     t.integer  "user_id"
   end
 
-  add_index "formulario_ps", ["formulario_field_id"], name: "index_formulario_ps_on_formulario_field_id"
-  add_index "formulario_ps", ["formulario_id"], name: "index_formulario_ps_on_formulario_id"
-  add_index "formulario_ps", ["user_id"], name: "index_formulario_ps_on_user_id"
+  add_index "formulario_ps", ["formulario_field_id"], name: "index_formulario_ps_on_formulario_field_id", using: :btree
+  add_index "formulario_ps", ["formulario_id"], name: "index_formulario_ps_on_formulario_id", using: :btree
+  add_index "formulario_ps", ["user_id"], name: "index_formulario_ps_on_user_id", using: :btree
 
   create_table "formularios", force: :cascade do |t|
     t.string   "nome"
@@ -73,8 +76,8 @@ ActiveRecord::Schema.define(version: 20170209204031) do
     t.integer  "tipo"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["filial_id"], name: "index_users_on_filial_id"
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["filial_id"], name: "index_users_on_filial_id", using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
