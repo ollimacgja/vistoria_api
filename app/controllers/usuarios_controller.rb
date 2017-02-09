@@ -15,12 +15,10 @@ class UsuariosController < ApplicationController
   # GET /usuarios/new
   def new
     @user = User.new
-    @filial = Filial.all
   end
 
   # GET /usuarios/1/edit
   def edit
-    @filial = Filial.all
   end
 
   # POST /usuarios
