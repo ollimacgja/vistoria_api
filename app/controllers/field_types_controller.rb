@@ -1,12 +1,6 @@
 class FieldTypesController < ApplicationController
   before_action :set_field_type, only: [:show, :edit, :update, :destroy]
-  before_action :nousuario
 
-  def nousuario
-    if @usuario == nil
-      redirect_to root_path
-    end
-  end
   # GET /field_types
   # GET /field_types.json
   def index

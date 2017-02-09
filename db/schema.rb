@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170113134012) do
+ActiveRecord::Schema.define(version: 20170209204031) do
 
   create_table "field_types", force: :cascade do |t|
     t.string   "nome"
@@ -41,12 +41,12 @@ ActiveRecord::Schema.define(version: 20170113134012) do
     t.string   "valor"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-    t.integer  "usuario_id"
+    t.integer  "user_id"
   end
 
   add_index "formulario_ps", ["formulario_field_id"], name: "index_formulario_ps_on_formulario_field_id"
   add_index "formulario_ps", ["formulario_id"], name: "index_formulario_ps_on_formulario_id"
-  add_index "formulario_ps", ["usuario_id"], name: "index_formulario_ps_on_usuario_id"
+  add_index "formulario_ps", ["user_id"], name: "index_formulario_ps_on_user_id"
 
   create_table "formularios", force: :cascade do |t|
     t.string   "nome"
@@ -68,22 +68,13 @@ ActiveRecord::Schema.define(version: 20170113134012) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "name"
+    t.string   "nome"
+    t.integer  "filial_id"
+    t.integer  "tipo"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["filial_id"], name: "index_users_on_filial_id"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-
-  create_table "usuarios", force: :cascade do |t|
-    t.string   "nome"
-    t.integer  "user_id"
-    t.integer  "filial_id"
-    t.integer  "tipo"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "usuarios", ["filial_id"], name: "index_usuarios_on_filial_id"
-  add_index "usuarios", ["user_id"], name: "index_usuarios_on_user_id"
 
 end

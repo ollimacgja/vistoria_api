@@ -15,7 +15,7 @@
     </thead>
 
     <tbody>
-    <% @usuarios.each do |usuario| %>
+    <% @users.each do |usuario| %>
         <tr>
           <td><%= usuario.nome %></td>
           <td><%= usuario.filial.nome %></td>
@@ -25,9 +25,9 @@
           <%else%>
               <td>Administrador</td>
           <%end%>
-          <td><%= button_to 'Mostrar',  usuario , method: :get ,class: "btn btn-primary"%></td>
+          <td><%= button_to 'Mostrar',  usuario_path(usuario) , method: :get ,class: "btn btn-primary"%></td>
           <td><%= button_to 'Editar', edit_usuario_path(usuario), method: :get ,class: "btn btn-warning" %></td>
-          <td><%= button_to 'Deletar', usuario, method: :delete, data: { confirm: 'Você tem certeza?' },class: "btn btn-danger" %></td>
+          <td><%= button_to 'Deletar', usuario_path(usuario), method: :delete, data: { confirm: 'Você tem certeza?' },class: "btn btn-danger" %></td>
 
 
         </tr>

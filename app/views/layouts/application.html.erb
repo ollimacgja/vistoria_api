@@ -87,16 +87,12 @@
 
 
       <% if user_signed_in?%>
-
-            <% if @usuario != nil %>
-                <% if @usuario.tipo == 1 %>
-                    <li class="amenu"><a href="/formularios"><i class="fa fa-file-o"></i>Formulario</a></li>
-                    <li class="amenu"><a href="/filials"><i class="fa fa-forumbee"></i>Filiais</a></li>
-                    <li class="amenu"><a href="/usuarios"><i class="fa fa-users"></i>Usuarios</a></li>
-                    <li class="amenu"><a href="/formulario_preenchido/indexp"><i class="fa fa-mail-forward"></i>Enviados</a></li>
-                <%end%>
-            <%end%>
-
+        <% if current_user.master? %>
+            <li class="amenu"><a href="/formularios"><i class="fa fa-file-o"></i>Formulario</a></li>
+            <li class="amenu"><a href="/filials"><i class="fa fa-forumbee"></i>Filiais</a></li>
+            <li class="amenu"><a href="/usuarios"><i class="fa fa-users"></i>Usuarios</a></li>
+            <li class="amenu"><a href="/formulario_preenchido/indexp"><i class="fa fa-mail-forward"></i>Enviados</a></li>
+        <%end%>
       <% end %>
 
     </ul>

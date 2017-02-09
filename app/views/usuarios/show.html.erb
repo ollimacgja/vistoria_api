@@ -4,22 +4,22 @@
 
   <p>
     <strong>Nome:</strong>
-    <%= @usuario.nome %>
+    <%= @user.nome %>
   </p>
 
   <p>
     <strong>Filial:</strong>
-    <%= @usuario.filial.nome %>
+    <%= @user.filial.nome %>
   </p>
 
   <p>
     <strong>Tipo:</strong>
-    <%= @usuario.tipo %>
+    <%= @user.tipo %>
   </p>
 
 
 
-  <%= button_to 'Editar', edit_usuario_path(@usuario), method: :get,class: "btn btn-danger" %>
+  <%= button_to 'Editar', edit_usuario_path(@user), method: :get,class: "btn btn-danger" %>
 
 
 
