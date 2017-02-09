@@ -1,12 +1,6 @@
 class FilialsController < ApplicationController
   before_action :set_filial, only: [:show, :edit, :update, :destroy]
-  before_action :nousuario
 
-  def nousuario
-    if @usuario == nil
-      redirect_to root_path
-    end
-  end
   # GET /filials
   # GET /filials.json
   def index

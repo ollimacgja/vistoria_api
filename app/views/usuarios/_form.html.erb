@@ -1,10 +1,10 @@
-<%= form_for(@usuario) do |f| %>
-  <% if @usuario.errors.any? %>
+<%= form_for(@user, url: (@user.new_record? ? usuarios_path : usuario_path)) do |f| %>
+  <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
       <ul>
-      <% @usuario.errors.full_messages.each do |message| %>
+      <% @user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -17,16 +17,22 @@
   </div>
 
   <div class="field">
-    <%= f.label "Filial" %><br>
-    <%= f.collection_select :filial_id ,@filial, :id,:nome, class: "selectpicker" %>
+    <%= f.label :email %><br>
+    <%= f.text_field :email , class: "form-control"%>
   </div>
-    <div class="field">
-      <%= f.label "Usuario Pré-cadastrado" %><br>
-      <%= f.collection_select :user_id ,@users, :id,:email, class: "selectpicker" %>
-    </div>
+
+  <div class="field">
+    <%= f.label :password, 'Senha (Irá alterar a senha original)' %><br>
+    <%= f.text_field :password , class: "form-control"%>
+  </div>
+
+  <div class="field">
+    <%= f.label "Filial" %><br>
+    <%= f.collection_select :filial_id ,filiais_para_select, :id,:nome, class: "selectpicker" %>
+  </div>
   <div class="field">
     <%= f.label :tipo %><br>
-    <select name="usuario[tipo]" id="usuario[tipo]">
+    <select name="user[tipo]" id="user[tipo]">
       <option value="0">Comum</option>
       <option value="1">Administrador</option>
     </select>

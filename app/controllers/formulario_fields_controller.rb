@@ -1,12 +1,6 @@
 class FormularioFieldsController < ApplicationController
   before_action :set_formulario_field, only: [:show, :edit, :update, :destroy]
-  before_action :nousuario
 
-  def nousuario
-    if @usuario == nil
-      redirect_to root_path
-    end
-  end
   # GET /formulario_fields
   # GET /formulario_fields.json
   def index

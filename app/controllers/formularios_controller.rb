@@ -1,13 +1,5 @@
 class FormulariosController < ApplicationController
   before_action :set_formulario, only: [:show, :edit, :update, :destroy, :detalhe]
-  # before_action :authenticate_user!
-
-  # before_action :configure_permitted_parameters, if: :devise_controller?
-  # def configure_permitted_parameters
-  #   devise_parameter_sanitizer.for(:sign_up) << :name
-  # end
-
-  before_action :nousuario
 
   def form_enviado
     @form = FormularioP.where " form_id=?", params[:id]
@@ -32,12 +24,6 @@ class FormulariosController < ApplicationController
 
   def indexp
     @form = FormularioP.group  "formulario_id"
-  end
-
-  def nousuario
-    if @usuario == nil
-      redirect_to root_path
-    end
   end
 
   # GET /formularios
