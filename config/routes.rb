@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :usuarios
   resources :filials
+  resources :logos, only: [:index, :update]
   devise_for :users
   get "formulario_fields/:id/new" => "formulario_fields#new"
   resources :formulario_fields
