@@ -26,6 +26,10 @@ gem 'twitter-bootstrap-rails', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'carrierwave', '~> 1.0'
+gem 'simple_form'
+gem 'mini_magick'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
