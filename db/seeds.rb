@@ -22,3 +22,5 @@ FieldType.where(nome: 'Arquivo').first_or_create
 filial = Filial.where(nome: 'Morro Azul').first_or_create
 
 User.create(nome: 'Fernando', filial: filial, tipo: 1, email: 'nando-hp@hotmail.com', password: 'trocar123')
+
+Logo.create
