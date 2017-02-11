@@ -15,7 +15,8 @@
     </thead>
 
     <tbody>
-    <% @form.each do |formulario| %>
+    <% if @form.any? %>
+      <% @form.each do |formulario| %>
         <% link=formulario.form_id.to_s+"/form_enviado"%>
         <tr>
           <td><%= formulario.formulario.nome %></td>
@@ -23,6 +24,7 @@
           <td><%= formulario.user.filial.nome%></td>
           <td><%= button_to 'Abrir Formulario', url_for(link)  , method: :get ,class: "btn btn-primary"%></td>
         </tr>
+      <% end %>
     <% end %>
     </tbody>
   </table>
