@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+
+  namespace :api do
+    namespace :v1 do
+      resources :login, only: :create
+    end
+  end
+
+
+
   resources :usuarios
   resources :filials
   resources :logos, only: [:index, :update]
