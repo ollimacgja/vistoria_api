@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   validates :nome, :filial, :presence => true
   before_create :generate_token
 
+  has_many :formularios, through: :filial
+
   def master?
     tipo == 1
   end

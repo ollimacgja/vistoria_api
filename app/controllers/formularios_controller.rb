@@ -54,10 +54,7 @@ class FormulariosController < ApplicationController
   # POST /formularios.json
   def create
     parametros =formulario_params
-    @formulario = Formulario.new(parametros[0])
-
-
-
+    @formulario = Formulario.new(parametros[0].merge({ filial_id: current_user.filial.id }))
 
     respond_to do |format|
       if @formulario.save

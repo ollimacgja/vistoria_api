@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170212055312) do
+ActiveRecord::Schema.define(version: 20170213010713) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,7 +56,10 @@ ActiveRecord::Schema.define(version: 20170212055312) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "quantidade"
+    t.integer  "filial_id"
   end
+
+  add_index "formularios", ["filial_id"], name: "index_formularios_on_filial_id", using: :btree
 
   create_table "logos", force: :cascade do |t|
     t.string   "image"
