@@ -16,10 +16,8 @@ Este é o endpoint para a logar um usuário existente.
 
 ```json
 {
-  "login":{
-    "email": "emaildouser@email.com",
-    "password": "password123"
-  }
+  "email": "emaildouser@email.com",
+  "password": "password123"
 }
 ```
 
