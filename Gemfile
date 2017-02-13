@@ -31,6 +31,8 @@ gem 'simple_form'
 gem 'mini_magick'
 gem 'active_model_serializers', '~> 0.10.0'
 
+gem 'rails_12factor', group: :production
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
