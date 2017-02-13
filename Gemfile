@@ -31,6 +31,7 @@ gem 'simple_form'
 gem 'mini_magick'
 gem 'active_model_serializers', '~> 0.10.0'
 
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

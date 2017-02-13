@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170213010713) do
+ActiveRecord::Schema.define(version: 20170213055605) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20170213010713) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.integer  "user_id"
+    t.string   "file"
   end
 
   add_index "formulario_ps", ["formulario_field_id"], name: "index_formulario_ps_on_formulario_field_id", using: :btree

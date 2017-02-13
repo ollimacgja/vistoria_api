@@ -9,6 +9,8 @@ class Api::V1::LoginController < Api::V1::BaseController
     end
   end
 
+  private
+
   def login_params
     params.require(:login).permit(:email, :password)
 

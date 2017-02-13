@@ -75,40 +75,37 @@ OBS: Os formulários estão com seus devidos campos
 
 ####Enviar Formulário Preenchido
 
-Este é o endpoint para a criação de resultados para uma competição.
+Este é o endpoint para a criação de formulários preenchidos.
 
 ```
-  POST /api/v1/result
+  POST /api/v1/formulario
 ```
 
 #####Os dados a serem enviados para a API:
 
 ```json
 {
-  "result":{
-    "competition": "Competição Dardos",
-    "athlete": "José das Couves",
-    "value": "123.45",
-    "unit": "m"
-  }
+  "auth_token" : "7mPXOCcBTRoACAyu25XqXw",
+  "formulario_id" : 8,
+  "formulario_fields": [{
+    "id": 8,
+    "valor" : "Arquivodefoto*¹"
+  },{
+    "id": 9,
+    "valor" : "Valor Preenchido"
+  }]
 }
 ```
 
 ######Observações
-lorenipsaum
+1 - Utilizando um formulário HTML normal e enviando um campo de upload.
 
-**Obs:** blabla
+**Obs:** Caso o valor seja um upload de arquivo, o mesmo será salvo no campo "File" da classe `FormularioP`
 
 #####Dados de Resposta
 
 ```json
 {
-  "id": 60,
-  "competition_id": 13,
-  "athlete_id": 5,
-  "value": 123.45,
-  "unit": "m",
-  "created_at": "2016-06-25T11:15:14.310Z",
-  "updated_at": "2016-06-25T11:15:14.310Z"
+  "Formulário preenchido com sucesso"
 }
 ```

@@ -8,7 +8,7 @@
     <thead>
     <tr>
       <th>Nome</th>
-      <th>Usuario</th>
+      <th>Usuarios</th>
       <th>Filial</th>
       <th colspan="1"></th>
     </tr>
@@ -17,11 +17,11 @@
     <tbody>
     <% if @form.any? %>
       <% @form.each do |formulario| %>
-        <% link=formulario.form_id.to_s+"/form_enviado"%>
+        <% link=formulario.id.to_s+"/form_enviado"%>
         <tr>
-          <td><%= formulario.formulario.nome %></td>
-          <td><%= formulario.user.nome %></td>
-          <td><%= formulario.user.filial.nome%></td>
+          <td><%= formulario.nome %></td>
+          <td><%= formulario.formulario_ps.group(:user_id).count.size %></td>
+          <td><%= formulario.filial.nome%></td>
           <td><%= button_to 'Abrir Formulario', url_for(link)  , method: :get ,class: "btn btn-primary"%></td>
         </tr>
       <% end %>
