@@ -19,7 +19,7 @@
     <% @formulario_fields.each do |formulario_field| %>
         <tr>
           <td><%= formulario_field.label %></td>
-          <td><%= formulario_field.formulario.nome %></td>
+          <td><%= formulario_field.formulario.try(:nome) %></td>
           <td><%= formulario_field.field_type.nome %></td>
           <td><%= formulario_field.requirido %></td>
           <td><%= button_to 'Editar', edit_formulario_field_path(formulario_field),class: "btn btn-warning" %></td>

@@ -8,8 +8,21 @@ class User < ActiveRecord::Base
   belongs_to :filial
 
   validates :nome, :filial, :presence => true
+  before_create :generate_token
+
+  has_many :formularios, through: :filial
 
   def master?
     tipo == 1
+  end
+
+
+  protected
+
+  def generate_token
+    self.auth_token = loop do
+      random_token = SecureRandom.urlsafe_base64(nil, false)
+      break random_token unless User.exists?(auth_token: random_token)
+    end
   end
 end

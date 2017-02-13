@@ -2,7 +2,7 @@ class FormulariosController < ApplicationController
   before_action :set_formulario, only: [:show, :edit, :update, :destroy, :detalhe]
 
   def form_enviado
-    @form = FormularioP.where " form_id=?", params[:id]
+    @form = FormularioP.where " formulario_id=?", params[:id]
 
     # +"<option value='1'>FOTO</option>"
     # +"<option value='2'>VÍDEO</option>"
@@ -23,7 +23,7 @@ class FormulariosController < ApplicationController
 
 
   def indexp
-    @form = FormularioP.group  "formulario_id"
+    @form = Formulario.joins(:formulario_ps).uniq
   end
 
   # GET /formularios
@@ -54,10 +54,7 @@ class FormulariosController < ApplicationController
   # POST /formularios.json
   def create
     parametros =formulario_params
-    @formulario = Formulario.new(parametros[0])
-
-
-
+    @formulario = Formulario.new(parametros[0].merge({ filial_id: current_user.filial.id }))
 
     respond_to do |format|
       if @formulario.save
