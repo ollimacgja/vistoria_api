@@ -7,7 +7,7 @@
     <%= @formulario.nome %>
     <!-- Adiconar tabela de campos -->
   </p>
-  <%= button_to 'Editar nome', edit_formulario_path(@formulario), method: :get,class: "btn btn-danger" %>
+  <%= button_to 'Editar Formulário', edit_formulario_path(@formulario), method: :get,class: "btn btn-danger" %>
   <hr>
   <table class="table table-bordered">
     <thead>
@@ -39,7 +39,6 @@
               <%else%>
                   <td><%= "Não Requerido" %></td>
               <%end%>
-              <td><%= button_to 'Editar', edit_formulario_field_path(formulario_field),method: :get ,class: "btn btn-warning" %></td>
               <td><%= button_to 'Deletar', formulario_field, method: :delete, data: { confirm: 'você tem certeza?' }, class: "btn btn-danger"  %></td>
             </tr>
         <% end %>

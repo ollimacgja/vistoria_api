@@ -30,6 +30,7 @@ gem 'carrierwave', '~> 1.0'
 gem 'simple_form'
 gem 'mini_magick'
 gem 'active_model_serializers', '~> 0.10.0'
+gem "nested_form"
 
 #Heroku Gem. Remove after.
 gem 'rails_12factor', group: :production

@@ -53,31 +53,11 @@ class FormulariosController < ApplicationController
   # POST /formularios
   # POST /formularios.json
   def create
-    parametros =formulario_params
-    @formulario = Formulario.new(parametros[0].merge({ filial_id: current_user.filial.id }))
+
+    @formulario = Formulario.new(formulario_params.merge({ filial_id: current_user.filial.id }))
 
     respond_to do |format|
       if @formulario.save
-
-        if parametros [1] != nil
-          tipo = parametros[1]
-          label = parametros[2]
-          rec = parametros[3]
-
-
-          x=0
-          for i in tipo
-            puts label[x.to_s]
-            form = FormularioField.new
-            form.formulario_id =@formulario.id
-            form.label = label[x.to_s]
-            form.requirido = rec[x.to_s]
-            form.field_type_id =tipo[x.to_s]
-            form.save
-            x+=1
-          end
-
-        end
         format.html { redirect_to @formulario, notice: 'Formulario criado com sucesso.' }
         format.json { render :show, status: :created, location: @formulario }
       else
@@ -94,7 +74,7 @@ class FormulariosController < ApplicationController
     form = formulario_params
 
     respond_to do |format|
-      if @formulario.update(form[0])
+      if @formulario.update(formulario_params)
         format.html { redirect_to @formulario, notice: 'Formulario atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @formulario }
       else
@@ -125,16 +105,17 @@ class FormulariosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def formulario_params
-     # params.require(:formulario).permit(:nome)
 
-      if params[:tipo] != nil
-      [params.require(:formulario).permit(:nome),
-       params.require(:tipo).permit!,
-       params.require(:label).permit!,
-       params.require(:rec).permit!]
-      else
-        [params.require(:formulario).permit(:nome),nil,nil,nil]
-      end
+     params.require(:formulario).permit(:nome, formulario_fields_attributes: [:id, :label, :field_type_id, :options, :requirido, :_destroy])
+
+      # if params[:tipo] != nil
+      # [params.require(:formulario).permit(:nome),
+      #  params.require(:tipo).permit!,
+      #  params.require(:label).permit!,
+      #  params.require(:rec).permit!]
+      # else
+      #   [params.require(:formulario).permit(:nome),nil,nil,nil]
+      # end
 
     end
 end

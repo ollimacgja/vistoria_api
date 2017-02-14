@@ -18,12 +18,10 @@
 
     <tbody>
     <% @formularios.each do |formulario| %>
-        <% link="formularios/"+formulario.id.to_s+"/detalhe"%>
         <tr>
           <td><%= formulario.nome %></td>
           <td><%= button_to 'Mostrar', formulario , method: :get ,class: "btn btn-primary"%></td>
-          <td><%= button_to 'Editar Nome', edit_formulario_path(formulario), method: :get ,class: "btn btn-warning" %></td>
-          <td><%= button_to 'Editar Campos', link  , method: :get ,class: "btn btn-primary"%></td>
+          <td><%= button_to 'Editar Formulário', edit_formulario_path(formulario)  , method: :get ,class: "btn btn-primary"%></td>
           <td><%= button_to 'Deletar', formulario, method: :delete, data: { confirm: 'Você tem certeza?' },class: "btn btn-danger" %></td>
         </tr>
     <% end %>

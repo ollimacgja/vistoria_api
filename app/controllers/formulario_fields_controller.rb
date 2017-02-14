@@ -85,7 +85,7 @@ class FormularioFieldsController < ApplicationController
   def destroy
     @formulario_field.destroy
     respond_to do |format|
-      format.html { redirect_to formulario_fields_url, notice: 'Formulario field was successfully destroyed.' }
+      format.html { redirect_to @formulario, notice: 'Formulario field was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -94,7 +94,7 @@ class FormularioFieldsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_formulario_field
     @formulario_field = FormularioField.find(params[:id])
-    @formulario = Formulario.all
+    @formulario = @formulario_field.formulario
     @fields = FieldType.all
   end
 
