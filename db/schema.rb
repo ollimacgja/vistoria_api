@@ -41,10 +41,10 @@ ActiveRecord::Schema.define(version: 20170213055605) do
     t.string   "form_id"
     t.integer  "formulario_id"
     t.integer  "formulario_field_id"
+    t.integer  "user_id"
     t.string   "valor"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-    t.integer  "user_id"
     t.string   "file"
   end
 
@@ -92,4 +92,6 @@ ActiveRecord::Schema.define(version: 20170213055605) do
   add_index "users", ["filial_id"], name: "index_users_on_filial_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "formulario_ps", "formulario_fields"
+  add_foreign_key "formulario_ps", "formularios"
 end
