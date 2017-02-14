@@ -20,6 +20,7 @@
 $(document).ready(function () {
 
     $(document).on('nested:fieldAdded', function(event){
+      console.log('test')
       // this field was just inserted into your form
       var field = event.field;
       var optionsField = field.find('.formulario_formulario_fields_options');
