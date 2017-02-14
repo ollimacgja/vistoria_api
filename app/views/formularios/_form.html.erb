@@ -47,3 +47,25 @@
 
 <% end %>
 
+<script type="text/javascript">
+  $(document).ready(function () {
+
+    $(document).on('nested:fieldAdded', function(event){
+      // this field was just inserted into your form
+      var field = event.field;
+      var optionsField = field.find('.formulario_formulario_fields_options');
+      $(optionsField).hide();
+
+      // it's a jQuery object already! Now you can find date input
+      var selectField = field.find('select')
+      $(selectField).change(function(){
+        if($(this).val() == 10 || $(this).val() == 11){ // or this.value == 'volvo'
+          $(optionsField).show();
+        } else {
+          $(optionsField).hide();
+        }
+      });
+    })
+  });
+</script>
+
