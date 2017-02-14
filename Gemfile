@@ -31,7 +31,19 @@ gem 'simple_form'
 gem 'mini_magick'
 gem 'active_model_serializers', '~> 0.10.0'
 
+#Heroku Gem. Remove after.
 gem 'rails_12factor', group: :production
+
+#Capistrano Config
+gem 'figaro'
+gem 'puma'
+group :development do
+  gem 'capistrano'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rvm'
+end
 
 
 # Use Unicorn as the app server
