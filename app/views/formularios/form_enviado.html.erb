@@ -24,7 +24,13 @@
 
           <td><%= @tipo[formulario.formulario_field.field_type_id] %></td>
 
-          <td><button class="btn btn-default">Abrir Imagem</button></td>
+          <td>
+            <% if formulario.formulario_field.file_field? %>
+              <%= link_to 'Ver Arquivo', formulario.file.url, class: 'btn btn-primary' %>
+            <% else %>
+              <%= formulario.valor %>
+            <% end %>
+          </td>
 
 
 
@@ -44,3 +50,4 @@
 
   <%= button_to 'Voltar', formulario_preenchido_indexp_path, method: :get ,class: "btn btn-success" %>
 </div>
+

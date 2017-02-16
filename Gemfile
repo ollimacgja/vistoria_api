@@ -27,6 +27,7 @@ gem 'twitter-bootstrap-rails', '~> 3.0'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'carrierwave', '~> 1.0'
+gem 'carrierwave-base64'
 gem 'simple_form'
 gem 'mini_magick'
 gem 'active_model_serializers', '~> 0.10.0'
@@ -39,6 +40,7 @@ gem 'rails_12factor', group: :production
 gem 'figaro'
 gem 'puma'
 group :development do
+  gem 'byebug'
   gem 'capistrano'
   gem 'capistrano3-puma'
   gem 'capistrano-rails', require: false
