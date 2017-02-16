@@ -62,7 +62,8 @@ OBS: Os formulários estão com seus devidos campos
       "requirido":1
     },{
       "id":11,
-      "label":"Teste CheckBox Label, Option 1, Option 2, Option 3, Option 4",
+      "label":"Teste CheckBox Label",
+      "options": "Option 1, Option 2, Option 3, Option 4",
       "field_type_id":10,
       "field_type_name":"Checkbox",
       "requirido":1
