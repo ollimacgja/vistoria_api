@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170214152947) do
+ActiveRecord::Schema.define(version: 20170223051001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(version: 20170214152947) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "filial_formularios", force: :cascade do |t|
+    t.integer  "formulario_id"
+    t.integer  "filial_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "filial_formularios", ["filial_id"], name: "index_filial_formularios_on_filial_id", using: :btree
+  add_index "filial_formularios", ["formulario_id"], name: "index_filial_formularios_on_formulario_id", using: :btree
 
   create_table "filials", force: :cascade do |t|
     t.string   "nome"
@@ -93,6 +103,8 @@ ActiveRecord::Schema.define(version: 20170214152947) do
   add_index "users", ["filial_id"], name: "index_users_on_filial_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "filial_formularios", "filials"
+  add_foreign_key "filial_formularios", "formularios"
   add_foreign_key "formulario_ps", "formulario_fields"
   add_foreign_key "formulario_ps", "formularios"
 end

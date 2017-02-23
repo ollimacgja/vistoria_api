@@ -5,6 +5,9 @@
   <p>
     <strong>Nome:</strong>
     <%= @formulario.nome %>
+    <br>
+    <strong>Filials:</strong>
+    <%= @formulario.filials.pluck(:nome).join(', ') %>
     <!-- Adiconar tabela de campos -->
   </p>
   <%= button_to 'Editar Formulário', edit_formulario_path(@formulario), method: :get,class: "btn btn-danger" %>

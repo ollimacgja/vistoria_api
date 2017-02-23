@@ -53,8 +53,7 @@ class FormulariosController < ApplicationController
   # POST /formularios
   # POST /formularios.json
   def create
-
-    @formulario = Formulario.new(formulario_params.merge({ filial_id: current_user.filial.id }))
+    @formulario = Formulario.new(formulario_params)
 
     respond_to do |format|
       if @formulario.save
@@ -106,7 +105,7 @@ class FormulariosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def formulario_params
 
-     params.require(:formulario).permit(:nome, formulario_fields_attributes: [:id, :label, :field_type_id, :options, :requirido, :_destroy])
+     params.require(:formulario).permit(:nome, filial_ids: [], formulario_fields_attributes: [:id, :label, :field_type_id, :options, :requirido, :_destroy])
 
       # if params[:tipo] != nil
       # [params.require(:formulario).permit(:nome),

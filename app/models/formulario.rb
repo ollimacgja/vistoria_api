@@ -1,5 +1,6 @@
 class Formulario < ActiveRecord::Base
-  belongs_to :filial
+  has_many :filial_formularios
+  has_many :filials, through: :filial_formularios
 
   has_many :formulario_fields
   has_many :formulario_ps

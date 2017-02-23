@@ -13,6 +13,8 @@
 
   <div class="field">
     <%= f.input :nome, class: "form-control" %>
+    <strong>Filiais:</strong>
+    <%= f.association :filials, as: :check_boxes, label_method: :nome, value_method: :id, label: false, item_wrapper_class: "checkbox-inline" %>
   </div>
   <hr>
   <%= f.fields_for :formulario_fields do |task_form| %>

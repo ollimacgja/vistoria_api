@@ -98,7 +98,7 @@ SimpleForm.setup do |config|
   # config.item_wrapper_tag = :span
 
   # You can define a class to use in all item wrappers. Defaulting to none.
-  # config.item_wrapper_class = nil
+  #config.item_wrapper_class = 'checkbox-inline'
 
   # How the label text should be generated altogether with the required text.
   # config.label_text = lambda { |label, required, explicit_label| "#{required} #{label}" }
@@ -162,7 +162,7 @@ SimpleForm.setup do |config|
 
   # Defines if the default input wrapper class should be included in radio
   # collection wrappers.
-  # config.include_default_input_wrapper_class = true
+  config.include_default_input_wrapper_class = false
 
   # Defines which i18n scope will be used in Simple Form.
   # config.i18n_scope = 'simple_form'
