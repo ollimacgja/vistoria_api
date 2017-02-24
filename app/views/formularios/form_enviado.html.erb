@@ -8,35 +8,18 @@
     <thead>
     <tr>
       <th>Usuário</th>
-      <th>Nome do Campo</th>
-      <th>Tipo</th>
-      <th>Valor</th>
-
+      <th>Data</th>
     </tr>
     </thead>
 
     <tbody>
-    <% @form.each do |formulario| %>
-
+      <% @form.each do |formulario| %>
         <tr>
           <td><%= formulario.user.nome %></td>
-          <td><%= formulario.formulario_field.label %></td>
-
-          <td><%= @tipo[formulario.formulario_field.field_type_id] %></td>
-
-          <td>
-            <% if formulario.formulario_field.file_field? %>
-              <%= link_to 'Ver Arquivo', formulario.file.url, class: 'btn btn-primary' %>
-            <% else %>
-              <%= formulario.valor %>
-            <% end %>
-          </td>
-
-
-
-
+          <td><%= formulario.created_at %></td>
+          <td><%= link_to 'Ver Formulário', answers_path(formulario.id), class: 'btn btn-primary' %></td>
         </tr>
-    <% end %>
+      <% end %>
     </tbody>
   </table>
 

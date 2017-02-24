@@ -1,0 +1,49 @@
+<div class="padd">
+
+  <p id="notice"><%= notice %></p>
+
+  <h1>Respostas Enviadas</h1>
+
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Nome do Campo</th>
+      <th>Tipo do Campo</th>
+      <th>Valor</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @answers.each do |answer| %>
+
+        <tr>
+          <td><%= answer.formulario_field.label %></td>
+          <td><%= answer.formulario_field.field_type.nome %></td>
+          <td>
+            <% if answer.formulario_field.file_field? %>
+              <%= link_to 'Ver Arquivo', answer.file.url, class: 'btn btn-primary' %>
+            <% else %>
+              <%= answer.valor %>
+            <% end %>
+          </td>
+
+
+
+
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+
+
+</div>
+
+<div class="widget-foot">
+
+  <%= button_to 'Voltar', formulario_preenchido_indexp_path, method: :get ,class: "btn btn-success" %>
+</div>
+

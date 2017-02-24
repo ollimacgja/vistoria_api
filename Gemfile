@@ -32,6 +32,7 @@ gem 'simple_form'
 gem 'mini_magick'
 gem 'active_model_serializers', '~> 0.10.0'
 gem "nested_form"
+gem "sentry-raven"
 
 #Heroku Gem. Remove after.
 gem 'rails_12factor', group: :production

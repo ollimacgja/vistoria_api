@@ -3,10 +3,11 @@ class Api::V1::FormularioController < Api::V1::BaseController
   before_action :authenticate_user, :find_form, :set_fields
 
   def create
+    form_p = FormularioP.create(user: @user, formulario: @form)
     @fields.each do |params_field|
       form_field = FormularioField.find(params_field[:id])
 
-      filled_form = FormularioP.new(user: @user, formulario: @form, formulario_field: form_field)
+      filled_form = form_p.answers.new(formulario_field: form_field)
       if form_field.file_field?
         filled_form.file = params_field[:valor]
       else

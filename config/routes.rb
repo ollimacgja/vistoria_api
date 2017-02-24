@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get "formulario_fields/:id/new" => "formulario_fields#new"
   resources :formulario_fields
   get "formularios/:id/detalhe" => "formularios#detalhe"
+  get "formularios/:id/respostas" => "formularios#answers", as: 'answers'
 
   get "formulario_preenchido/:id/form_enviado" => "formularios#form_enviado"
   get "formulario_preenchido/indexp" =>"formularios#indexp"

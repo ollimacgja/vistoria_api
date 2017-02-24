@@ -9,7 +9,7 @@
     <tr>
       <th>Nome</th>
       <th>Usuarios</th>
-      <th>Filial</th>
+      <th>Filiais</th>
       <th colspan="1"></th>
     </tr>
     </thead>
@@ -20,8 +20,8 @@
         <% link=formulario.id.to_s+"/form_enviado"%>
         <tr>
           <td><%= formulario.nome %></td>
-          <td><%= formulario.formulario_ps.group(:user_id).count.size %></td>
-          <td><%= formulario.filial.nome%></td>
+          <td><%= formulario.formulario_ps.map{|f| f.user.nome}.join(', ') %></td>
+          <td><%= formulario.filials.pluck(:nome).join(', ')%></td>
           <td><%= button_to 'Abrir Formulario', url_for(link)  , method: :get ,class: "btn btn-primary"%></td>
         </tr>
       <% end %>

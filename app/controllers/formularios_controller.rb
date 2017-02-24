@@ -21,6 +21,11 @@ class FormulariosController < ApplicationController
 
   end
 
+  def answers
+    form = FormularioP.find(params[:id])
+    @answers = form.answers
+  end
+
 
   def indexp
     @form = Formulario.joins(:formulario_ps).uniq
