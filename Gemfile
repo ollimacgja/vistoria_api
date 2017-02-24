@@ -28,6 +28,7 @@ gem 'twitter-bootstrap-rails', '~> 3.0'
 
 gem 'carrierwave', '~> 1.0'
 gem 'carrierwave-base64'
+gem "fog-aws"
 gem 'simple_form'
 gem 'mini_magick'
 gem 'active_model_serializers', '~> 0.10.0'
