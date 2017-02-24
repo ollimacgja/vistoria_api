@@ -16,7 +16,7 @@
       <% @form.each do |formulario| %>
         <tr>
           <td><%= formulario.user.nome %></td>
-          <td><%= formulario.created_at %></td>
+          <td><%= formulario.created_at.strftime("%d/%m/%Y") %></td>
           <td><%= link_to 'Ver Formulário', answers_path(formulario.id), class: 'btn btn-primary' %></td>
         </tr>
       <% end %>
